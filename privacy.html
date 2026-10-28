@@ -487,6 +487,7 @@
             <li><strong>Product Photos:</strong> Article reference images captured or uploaded by your team, stored in isolated, encrypted cloud storage buckets.</li>
             <li><strong>Photo Fingerprints:</strong> For the duplicate-photo warning, your phone works out a short number (a 64-bit &ldquo;fingerprint&rdquo;) from each colour photo and stores only that number with the colour record; to find look-alikes it sends that number (never the photo) to your firm&rsquo;s own database. The fingerprint cannot be turned back into the photo.</li>
             <li><strong>Device Registry Identifiers:</strong> Device hardware model, operating system version, and unique installation tokens used to enforce multi-device authorization and allow remote device revocation.</li>
+            <li><strong>Staff Call Push Tokens (Business plan):</strong> When a manager or staff member signs in, their phone&rsquo;s Firebase Cloud Messaging push token is stored with their account in your firm&rsquo;s own database, so the owner or a manager can ring them. The token is removed when they sign out.</li>
           </ul>
 
           <div class="highlight-card security">
@@ -557,7 +558,7 @@
               </div>
               <h4>Push Notifications (Optional)</h4>
             </div>
-            <p>Used to deliver inventory alerts (such as restock shortage thresholds) and device authorization verification notices.</p>
+            <p>Used to deliver inventory alerts (such as restock shortage thresholds) and device authorization verification notices, and staff calls: when the owner or a manager rings a staff member (Business plan), that phone shows a full-screen &ldquo;Call from (name)&rdquo; alert, which can appear over the lock screen until they tap I&rsquo;ve seen this.</p>
           </div>
         </section>
 
@@ -591,6 +592,11 @@
           <div class="highlight-card security">
             <h4>Optional Voice Entry (Phone&rsquo;s Speech Service)</h4>
             <p>If you choose to use voice entry, speech recognition is performed by the speech service built into your Android phone (usually Google&rsquo;s), not by StockGrid. StockGrid receives the recognised text only. See the Microphone Permission above.</p>
+          </div>
+
+          <div class="highlight-card security">
+            <h4>Staff Calls (Google Firebase Cloud Messaging)</h4>
+            <p>Staff calls are delivered by Google Firebase Cloud Messaging, under Google&rsquo;s privacy policy. Firebase receives only the phone&rsquo;s push token, the call number and the caller&rsquo;s name; nothing about your stock, prices or customers. The token is deleted from our database when the person signs out, or when Firebase reports it is no longer valid.</p>
           </div>
 
           <div class="highlight-card security">
