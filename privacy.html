@@ -485,8 +485,14 @@
             <li><strong>Firm & Account Details:</strong> Firm name, administrator email address, currency format (e.g., INR ₹), and localized timezone settings.</li>
             <li><strong>Inventory Catalog & Transaction Data:</strong> Article codes, item descriptions, garment & apparel size matrices (e.g., S, M, L, XL, XXL / Waist 28–44), categories, minimum stock thresholds, wholesale/retail pricing, and timestamped stock in/out audit records.</li>
             <li><strong>Product Photos:</strong> Article reference images captured or uploaded by your team, stored in isolated, encrypted cloud storage buckets.</li>
+            <li><strong>Photo Fingerprints:</strong> For the duplicate-photo warning, your phone works out a short number (a 64-bit &ldquo;fingerprint&rdquo;) from each colour photo and stores only that number with the colour record; to find look-alikes it sends that number (never the photo) to your firm&rsquo;s own database. The fingerprint cannot be turned back into the photo.</li>
             <li><strong>Device Registry Identifiers:</strong> Device hardware model, operating system version, and unique installation tokens used to enforce multi-device authorization and allow remote device revocation.</li>
           </ul>
+
+          <div class="highlight-card security">
+            <h4>Photo Suggestions Are Worked Out On Your Phone</h4>
+            <p>The duplicate-photo warning, the suggested colour name and the suggested design number from a printed tag are all calculated on your phone. Tag text is read by Google ML Kit text recognition, which is bundled inside the app and runs on the device, so the photo and the text it reads are not sent anywhere. Colour names you choose are remembered on your phone only, to improve later suggestions, and are cleared when you sign out. The &ldquo;Check old photos&rdquo; setting (Admin and Manager; Wi-Fi only unless you allow mobile data) downloads small thumbnails of your own photos to your phone to work out their fingerprints, then saves only the fingerprint number. You can switch it off in Settings &gt; Preferences.</p>
+          </div>
 
           <div class="highlight-card security">
             <h4>Isolated Tenant Storage</h4>
