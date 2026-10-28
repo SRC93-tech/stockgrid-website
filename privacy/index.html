@@ -245,6 +245,9 @@
     .highlight-card.perm-camera {
       border-left: 4px solid #38BDF8;
     }
+    .highlight-card.perm-microphone {
+      border-left: 4px solid #34D399;
+    }
     .highlight-card.perm-storage {
       border-left: 4px solid #C084FC;
     }
@@ -401,7 +404,7 @@
   <!-- Navigation -->
   <header>
     <div class="container nav-inner">
-      <a href="index.html" class="brand-logo-group">
+      <a href="/" class="brand-logo-group">
         <svg class="logo-icon-svg" viewBox="0 0 1024 1024" fill="none">
           <rect x="302" y="404" width="420" height="72" rx="36" fill="#14B8A6"/>
           <rect x="302" y="548" width="420" height="72" rx="36" fill="#FB7185"/>
@@ -411,7 +414,7 @@
         <span class="brand-title">StockGrid</span>
       </a>
 
-      <a href="index.html" class="back-btn">
+      <a href="/" class="back-btn">
         <span>←</span>
         <span>Back to Product Overview</span>
       </a>
@@ -427,7 +430,7 @@
       </div>
       <h1 class="policy-title">Privacy Policy</h1>
       <div class="policy-meta">
-        Last Updated: August 2026 • Official Privacy Policy for StockGrid Android
+        Last Updated: October 2026 • Official Privacy Policy for StockGrid Android
       </div>
     </div>
 
@@ -482,8 +485,15 @@
             <li><strong>Firm & Account Details:</strong> Firm name, administrator email address, currency format (e.g., INR ₹), and localized timezone settings.</li>
             <li><strong>Inventory Catalog & Transaction Data:</strong> Article codes, item descriptions, garment & apparel size matrices (e.g., S, M, L, XL, XXL / Waist 28–44), categories, minimum stock thresholds, wholesale/retail pricing, and timestamped stock in/out audit records.</li>
             <li><strong>Product Photos:</strong> Article reference images captured or uploaded by your team, stored in isolated, encrypted cloud storage buckets.</li>
+            <li><strong>Photo Fingerprints:</strong> For the duplicate-photo warning, your phone works out a short number (a 64-bit &ldquo;fingerprint&rdquo;) from each colour photo and stores only that number with the colour record; to find look-alikes it sends that number (never the photo) to your firm&rsquo;s own database. The fingerprint cannot be turned back into the photo.</li>
             <li><strong>Device Registry Identifiers:</strong> Device hardware model, operating system version, and unique installation tokens used to enforce multi-device authorization and allow remote device revocation.</li>
+            <li><strong>Staff Call Push Tokens (Business plan):</strong> When a manager or staff member signs in, their phone&rsquo;s Firebase Cloud Messaging push token is stored with their account in your firm&rsquo;s own database, so the owner or a manager can ring them. The token is removed when they sign out.</li>
           </ul>
+
+          <div class="highlight-card security">
+            <h4>Photo Suggestions Are Worked Out On Your Phone</h4>
+            <p>The duplicate-photo warning, the suggested colour name and the suggested design number from a printed tag are all calculated on your phone. Tag text is read by Google ML Kit text recognition, which is bundled inside the app and runs on the device, so the photo and the text it reads are not sent anywhere. Colour names you choose are remembered on your phone only, to improve later suggestions, and are cleared when you sign out. The &ldquo;Check old photos&rdquo; setting (Admin and Manager; Wi-Fi only unless you allow mobile data) downloads small thumbnails of your own photos to your phone to work out their fingerprints, then saves only the fingerprint number. You can switch it off in Settings &gt; Preferences.</p>
+          </div>
 
           <div class="highlight-card security">
             <h4>Isolated Tenant Storage</h4>
@@ -506,6 +516,21 @@
               <h4>Camera Permission</h4>
             </div>
             <p>Used exclusively when you activate the live Barcode/QR Scanner or capture a photo for an inventory item. We never access the camera in the background or store continuous camera feeds.</p>
+          </div>
+
+          <div class="highlight-card permission perm-microphone">
+            <div class="permission-header">
+              <div class="feature-icon-box icon-emerald">
+                <svg class="feature-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="rgba(16, 185, 129, 0.2)"></path>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                  <line x1="12" y1="19" x2="12" y2="23"></line>
+                  <line x1="8" y1="23" x2="16" y2="23"></line>
+                </svg>
+              </div>
+              <h4>Microphone Permission (Optional)</h4>
+            </div>
+            <p>Used only when you tap the voice button on Update Stock (Business plan) to speak stock lines such as &ldquo;5582 pink 24 pieces&rdquo;. Your speech is turned into text by your phone&rsquo;s own speech recognition service (on most Android phones this is Google&rsquo;s), which may send the audio to Google to be processed under Google&rsquo;s privacy policy. StockGrid does not record, store or upload your voice, and never listens in the background. It receives only the resulting text, which is used to prepare stock lines that you review before anything is added. If you deny the permission or do not use the voice button, the rest of the app works as before.</p>
           </div>
 
           <div class="highlight-card permission perm-storage">
@@ -533,7 +558,7 @@
               </div>
               <h4>Push Notifications (Optional)</h4>
             </div>
-            <p>Used to deliver inventory alerts (such as restock shortage thresholds) and device authorization verification notices.</p>
+            <p>Used to deliver inventory alerts (such as restock shortage thresholds) and device authorization verification notices, and staff calls: when the owner or a manager rings a staff member (Business plan), that phone shows a full-screen &ldquo;Call from (name)&rdquo; alert, which can appear over the lock screen until they tap I&rsquo;ve seen this.</p>
           </div>
         </section>
 
@@ -564,6 +589,16 @@
           <p>
             <strong>We do not sell, rent, monetize, or trade your inventory, customer, or transaction data with any third-party advertisers or data brokers under any circumstances.</strong>
           </p>
+          <div class="highlight-card security">
+            <h4>Optional Voice Entry (Phone&rsquo;s Speech Service)</h4>
+            <p>If you choose to use voice entry, speech recognition is performed by the speech service built into your Android phone (usually Google&rsquo;s), not by StockGrid. StockGrid receives the recognised text only. See the Microphone Permission above.</p>
+          </div>
+
+          <div class="highlight-card security">
+            <h4>Staff Calls (Google Firebase Cloud Messaging)</h4>
+            <p>Staff calls are delivered by Google Firebase Cloud Messaging, under Google&rsquo;s privacy policy. Firebase receives only the phone&rsquo;s push token, the call number and the caller&rsquo;s name; nothing about your stock, prices or customers. The token is deleted from our database when the person signs out, or when Firebase reports it is no longer valid.</p>
+          </div>
+
           <div class="highlight-card security">
             <h4>Optional Google Drive Cloud Backups</h4>
             <p>When the administrator initiates a manual or scheduled Google Drive backup, an encrypted archive of your inventory catalog and audit history is uploaded directly to your own authorized Google Drive account via official Google OAuth APIs. StockGrid does not access, monetize, or store your Google account credentials.</p>
