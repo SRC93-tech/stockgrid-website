@@ -245,6 +245,9 @@
     .highlight-card.perm-camera {
       border-left: 4px solid #38BDF8;
     }
+    .highlight-card.perm-microphone {
+      border-left: 4px solid #34D399;
+    }
     .highlight-card.perm-storage {
       border-left: 4px solid #C084FC;
     }
@@ -427,7 +430,7 @@
       </div>
       <h1 class="policy-title">Privacy Policy</h1>
       <div class="policy-meta">
-        Last Updated: August 2026 • Official Privacy Policy for StockGrid Android
+        Last Updated: October 2026 • Official Privacy Policy for StockGrid Android
       </div>
     </div>
 
@@ -508,6 +511,21 @@
             <p>Used exclusively when you activate the live Barcode/QR Scanner or capture a photo for an inventory item. We never access the camera in the background or store continuous camera feeds.</p>
           </div>
 
+          <div class="highlight-card permission perm-microphone">
+            <div class="permission-header">
+              <div class="feature-icon-box icon-emerald">
+                <svg class="feature-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="rgba(16, 185, 129, 0.2)"></path>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                  <line x1="12" y1="19" x2="12" y2="23"></line>
+                  <line x1="8" y1="23" x2="16" y2="23"></line>
+                </svg>
+              </div>
+              <h4>Microphone Permission (Optional)</h4>
+            </div>
+            <p>Used only when you tap the voice button on Update Stock (Business plan) to speak stock lines such as &ldquo;5582 pink 24 pieces&rdquo;. Your speech is turned into text by your phone&rsquo;s own speech recognition service (on most Android phones this is Google&rsquo;s), which may send the audio to Google to be processed under Google&rsquo;s privacy policy. StockGrid does not record, store or upload your voice, and never listens in the background. It receives only the resulting text, which is used to prepare stock lines that you review before anything is added. If you deny the permission or do not use the voice button, the rest of the app works as before.</p>
+          </div>
+
           <div class="highlight-card permission perm-storage">
             <div class="permission-header">
               <div class="feature-icon-box icon-purple">
@@ -564,6 +582,11 @@
           <p>
             <strong>We do not sell, rent, monetize, or trade your inventory, customer, or transaction data with any third-party advertisers or data brokers under any circumstances.</strong>
           </p>
+          <div class="highlight-card security">
+            <h4>Optional Voice Entry (Phone&rsquo;s Speech Service)</h4>
+            <p>If you choose to use voice entry, speech recognition is performed by the speech service built into your Android phone (usually Google&rsquo;s), not by StockGrid. StockGrid receives the recognised text only. See the Microphone Permission above.</p>
+          </div>
+
           <div class="highlight-card security">
             <h4>Optional Google Drive Cloud Backups</h4>
             <p>When the administrator initiates a manual or scheduled Google Drive backup, an encrypted archive of your inventory catalog and audit history is uploaded directly to your own authorized Google Drive account via official Google OAuth APIs. StockGrid does not access, monetize, or store your Google account credentials.</p>
